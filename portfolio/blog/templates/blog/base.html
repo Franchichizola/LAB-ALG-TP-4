@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-3">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <nav>
-        <a href="/">INCIO BLOG</a>
-    <h1>Blog</h1>
-    <p>Hola mundito</p>
+        <a href="/">Portfolio</a>
+        <a href="/blog">blog</a>
+        <a href="/admin">admin</a>
+        <h1>Blog</h1>
+        <p>Hola mundito</p>
+    </nav>
+    <main>
+        {% block content %}
+        
+        {% endblock %}
+    </main>
 </body>
 </html>

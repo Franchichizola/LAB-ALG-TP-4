@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Franco Chichizola | Portfolio</title>
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Playfair+Display:wght@600&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="{% static 'portfolio/assets/favicon.png' %}" />
+</head>
+<body id="mainBody">
+    <input type="checkbox" id="darkModeToggle" hidden>
+    
+    <header class="navbar">
+        <div class="NombrePagina">
+            <img class="invertida" src="{% static 'portfolio/assets/favicon.png' %}" alt="icono" />
+            <span>Franco Chichizola</span>
+            <img src="{% static 'portfolio/assets/favicon.png' %}" alt="icono" />
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#sobre-mi">Sobre Mi</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="{% url 'blog_index' %}">Blog</a></li>
+            </ul>
+        </nav>
+        <label id="darkModeButton" class="dark-toggle" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </label>
+    </header>
+
+    <section>
+        <div class="inicio">
+            <div>
+                <img src="{% static 'portfolio/assets/logo.jpg' %}" alt="Logo">
+                <ul>
+                    <li class="Letra">Bienvenido a mi Portfolio</li>
+                    <li>Soy</li>
+                    <li class="LetraNombre">Franco Chichizola</li>
+                </ul>
+            </div>
+        </div>
+        <a href="{% static 'portfolio/assets/CV_Franco_Chichizola.pdf' %}" download class="boton-cv" aria-label="Descargar CV">
+            <i class="fas fa-file-arrow-down"></i> Descargar CV
+        </a>
+    </section>
+
+    <section id="sobre-mi"> 
+        <div class="SobreMi">
+            <h2>Sobre Mi</h2>
+            <p>Hola, buen día, buenas tardes o buenas noches, dependiendo de cuándo estés leyendo esto. Soy <span style="color: #ffd700;">Franco Chichizola</span>, estudiante de secundaria con especialización en informática. Me apasiona la tecnología y siempre estoy buscando nuevas formas de aprender y mejorar mis habilidades.</p>
+            <p>Disfruto programar proyectos donde puedo transformar ideas en código funcional. Además del desarrollo de software, me interesa seguir explorando distintos lenguajes y herramientas que potencien mi creatividad.</p>
+            <p>Actualmente estoy enfocado en crecer como desarrollador, crear proyectos innovadores y seguir aprendiendo día a día del mundo de la programación.</p>
+        </div>
+    </section>
+    <section id="proyectos">
+        <div class="Proyectos">
+            <h2>Proyectos</h2>
+            <div class="ContenedorTargetas">
+                <a href="https://github.com/Sslozfer/pvz-python" target="_blank" style="text-decoration: none; color: #111;">
+                    <div>
+                        <img src="{% static 'portfolio/assets/proyecto1.jpg' %}" alt="proyecto 1">
+                        <h3>PVZ en Python</h3>
+                        <p>Recree una gran parte del juego "Plantas vs Zombies" en python con un compañero</p>
+                        <span style="color: #ffd700;">Ver más</span>
+                    </div>
+                </a>
+                <a href="https://github.com/Franchichizola/LAB-ALG-TP-1" target="_blank" style="text-decoration: none; color: #111;">
+                    <div>
+                        <img src="{% static 'portfolio/assets/proyecto2.jpg' %}" alt="proyecto2">
+                        <h3>Uso de APIS y Plotly</h3>
+                        <p>Representación de gráficos de terremotos mundiales y navegador de repositorios con API REST de GitHub.</p>
+                        <span style="color: #ffd700;">Ver más</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="habilidades">
+        <div class="Habilidades">
+            <h2>Habilidades</h2>
+            <div class="ListaHabilidades">
+                <div>
+                    <input type="radio" name="habilidad" id="python" hidden>
+                    <label for="python" class="habilidad">
+                        <i class="fab fa-python"></i>
+                        <p>Python</p>
+                        <div class="descripcion">
+                            Lenguaje de programación multipropósito. Lo usé para recrear un juego estilo "Plantas vs Zombies" y para manejar APIs como la de GitHub o terremotos.
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" name="habilidad" id="html" hidden>
+                    <label for="html" class="habilidad">
+                        <i class="fab fa-html5"></i>
+                        <p>HTML</p>
+                        <div class="descripcion">
+                            Lenguaje de marcado para estructurar contenido web. Lo uso para crear la base de este portfolio y otras interfaces.
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" name="habilidad" id="css" hidden>
+                    <label for="css" class="habilidad">
+                        <i class="fab fa-css3-alt"></i>
+                        <p>CSS</p>
+                        <div class="descripcion">
+                            Lenguaje de estilos visuales. Lo aplico para dar diseño, animaciones y responsividad a mis páginas, como este sitio.
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" name="habilidad" id="git" hidden>
+                    <label for="git" class="habilidad">
+                        <i class="fab fa-git-alt"></i>
+                        <p>Git</p>
+                        <div class="descripcion">
+                            Sistema de control de versiones. Lo usé para organizar el trabajo en equipo del juego PVZ y mantener control del código.
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" name="habilidad" id="github" hidden>
+                    <label for="github" class="habilidad">
+                        <i class="fab fa-github-alt"></i>
+                        <p>Github</p>
+                        <div class="descripcion">
+                            Plataforma para alojar proyectos. Subo ahí mis trabajos como el uso de APIs y mis juegos, para compartirlos y actualizarlos.
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contacto">
+        <div class="Contacto">
+            <h2>Contacto</h2>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="7d37c9ca-1e8a-4f21-9766-ad273d33f51b">
+                <input type="text" name="name" placeholder="Tu nombre" required>
+                <input type="email" name="email" placeholder="Tu correo" required>
+                <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <div class="RedesContacto">
+                <a href="https://github.com/Franchichizola" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>PAPAS JHONSON STUDIOS©. Derechos reservados de uso</p>
+    </footer>
+    <script src="{% static 'portfolio/js/script.js' %}"></script>
+</body>
+</html>
