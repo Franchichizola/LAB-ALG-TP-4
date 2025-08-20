@@ -4,16 +4,19 @@
     <article>
         <h1>{{ post.titulo }}</h1>
         <p>Publicado el: {{ post.fecha_creacion|date:"d/m/Y" }}</p>
+        {% if post.archivo_multimedia %}
+            <img src="{{ post.archivo_multimedia.url }}" alt="{{ post.titulo }}">
+        {% endif %}
         <div>
-            {{ post.contenido|safe }}
+            {{ post.contenido|linebreaksbr }}
         </div>
     </article>
 
-    <hr>
-
     <h3>Comentarios</h3>
     {% for comentario in comentarios %}
-        <p><strong>{{ comentario.usuario.username }}</strong>: {{ comentario.texto }}</p>
+        <p><strong>{{ comentario.usuario.username }}</strong></p> 
+        <p>{{ comentario.texto }}</p>
+        <p>{{ comentario.fecha_creacion }}</p>
     {% empty %}
         <p>Aún no hay comentarios.</p>
     {% endfor %}

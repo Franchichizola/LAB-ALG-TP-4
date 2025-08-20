@@ -1,16 +1,24 @@
-{%extends "blog/base.html" %}
-
-{%block content %}
+{% extends "blog/base.html" %}
+{% block content %}
+    {% if user.is_staff %}
+        <a href="{% url 'crear_post' %}">Crear Nuevo Post</a>
+    {% endif %}
+    
     {% if posts %}
+        <h1>Últimos Posts</h1>
         {% for post in posts %}
             <article>
                 <h2><a href="{% url 'detalle_post' post.titulo_slug %}">{{ post.titulo }}</a></h2>
-                <p>{{ post.contenido|truncatechars:200 }}</p>
+                
+                {% if post.archivo_multimedia %}
+                    <img src="{{ post.archivo_multimedia.url }}" alt="{{ post.titulo }}">
+                {% endif %}
+                
+                <p>{{ post.contenido|truncatewords:30 }}</p>
                 <p>Fecha de publicacion: {{ post.fecha_creacion|date:"d/m/Y"}}</p>
-                <hr>
             </article>
         {% endfor %}
     {% else %}
         <p>No hay skibidi posts en el blog \|T-T|/p>
     {% endif %}
-{%endblock %}
+{% endblock %} 
