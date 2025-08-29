@@ -1,5 +1,7 @@
 {% extends "blog/base.html" %}
-
+{% load static %} {% block css %}
+    <link rel="stylesheet" href="{% static 'blog/css/detalle_post.css' %}">
+{% endblock css %}
 {% block content %}
     <article>
         <h1>{{ post.titulo }}</h1>
@@ -11,16 +13,16 @@
             {{ post.contenido|linebreaksbr }}
         </div>
     </article>
-
-    <h3>Comentarios</h3>
-    {% for comentario in comentarios %}
-        <p><strong>{{ comentario.usuario.username }}</strong></p> 
-        <p>{{ comentario.texto }}</p>
-        <p>{{ comentario.fecha_creacion }}</p>
-    {% empty %}
-        <p>Aún no hay comentarios.</p>
-    {% endfor %}
-
+    <div class= "comentarios">
+        <h2>Comentarios</h2>
+        {% for comentario in comentarios %}
+            <p><strong>{{ comentario.usuario.username }}</strong></p> 
+            <p>{{ comentario.texto }}</p>
+            <p class= 'fecha_creacion'>{{ comentario.fecha_creacion }}</p>
+        {% empty %}
+            <p>Aún no hay comentarios.</p>
+        {% endfor %}
+    </div>
     {% if user.is_authenticated %}
         <form method="post">
             {% csrf_token %}

@@ -6,7 +6,11 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ["titulo", "contenido", "archivo_multimedia"]
-
+        widgets = {
+            'titulo': forms.TextInput(attrs={'placeholder': 'Título'}),
+            'contenido': forms.Textarea(attrs={'placeholder': 'Contenido'}),
+            'archivo_multimedia': forms.ClearableFileInput(attrs={'class': 'imagen'})
+        }
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
     

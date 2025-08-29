@@ -140,6 +140,9 @@ main a[href*="crear_post"]:hover {
 }
 
 article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: var(--color-secundario);
     border-radius: 1rem;
     padding: 2rem;
@@ -165,7 +168,7 @@ article h2 a:hover {
 }
 
 article img {
-    width: 100%;
+    width: auto;
     height: auto;
     border-radius: 0.5rem;
     margin-top: 1rem;
@@ -227,5 +230,6 @@ footer {
     position: static;
     bottom: 0;
     width: 100%;
+    margin-top: 30px;
 }
 

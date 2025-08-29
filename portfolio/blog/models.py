@@ -14,7 +14,9 @@ class Post(models.Model):
         if not self.titulo_slug:
             self.titulo_slug = slugify(self.titulo)
         super().save(*args, **kwargs)
-
+    def __str__(self):
+        return self.titulo
+    
 
 class Comentario(models.Model):
     post = models.ForeignKey(Post,on_delete=models.CASCADE)
@@ -22,5 +24,6 @@ class Comentario(models.Model):
     texto = models.TextField()
     fecha_creacion = models.DateTimeField(auto_now_add= True)
 
-from django.db import models
-from django.utils.text import slugify
+    def __str__(self):
+        return f'comentario de {self.usuario} en {self.post}'
+

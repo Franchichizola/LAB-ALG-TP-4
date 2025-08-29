@@ -1,11 +1,21 @@
 {% extends "blog/base.html" %}
+{% load static %} {% block css %}
+    <link rel="stylesheet" href="{% static 'blog/css/cuentas.css' %}">
+{% endblock css %}
+{% block titulo %}
+    <title>login</title>
+{% endblock titulo %}
+
 
 {% block content %}
-<h2>Iniciar sesión</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Entrar</button>
-</form>
-<p>¿No tienes una cuenta todavia? <a href="{% url 'registro' %}">Crea una cuenta aqui</a>.</p>
+    <h1>Iniciar sesión</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Entrar</button>
+    </form>
+    <div class = 'final' >
+        <p class= 'texto'>¿No tienes una cuenta todavia? </p>
+        <a class= 'link' href="{% url 'registro' %}">Crea una cuenta aqui</a>
+    </div>
 {% endblock %}

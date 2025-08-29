@@ -1,4 +1,10 @@
 {% extends "blog/base.html" %}
+{% load static %} {% block css %}
+    <link rel="stylesheet" href="{% static 'blog/css/index.css' %}">
+{% endblock css %}
+{% block titulo%} 
+    <title>Blog</title>
+{% endblock titulo%}
 {% block content %}
     {% if user.is_staff %}
         <a href="{% url 'crear_post' %}">Crear Nuevo Post</a>
@@ -21,4 +27,4 @@
     {% else %}
         <p>No hay skibidi posts en el blog \|T-T|/p>
     {% endif %}
-{% endblock %} 
+{% endblock %}
